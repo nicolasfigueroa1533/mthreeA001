@@ -82,7 +82,7 @@ public class DVDCollection {
             String str;
             while((str = in.readLine()) != null){
                 String[] tokens = str.split(",");
-                dvdCollection.put(tokens[0], new DVD(tokens[1]));
+                dvdCollection.put(tokens[0], new DVD(tokens[0]));
                 dvdCollection.get(tokens[0]).setReleaseDate(tokens[1]);
                 dvdCollection.get(tokens[0]).setmPAARating(tokens[2]);
                 dvdCollection.get(tokens[0]).setDirectorsName(tokens[3]);
