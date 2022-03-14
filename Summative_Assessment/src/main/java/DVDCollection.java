@@ -68,7 +68,6 @@ public class DVDCollection {
             for(String name : dvdCollection.keySet()){
                 out.print(dvdCollection.get(name).toPrint());
             }
-            out.print("***********");
             out.close();
         }
         catch(Exception e){
