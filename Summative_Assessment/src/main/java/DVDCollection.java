@@ -9,6 +9,7 @@
  * @author Nico
  */
 import java.util.*;
+import java.io.*;
 public class DVDCollection {
     String name;
     Map<String, DVD> dvdCollection = new HashMap<>();
@@ -60,4 +61,39 @@ public class DVDCollection {
     public void listValues(String name){
         dvdCollection.get(name).toString();
     }
+    
+    public void writeToFile(){
+        try{
+            PrintWriter out = new PrintWriter(new FileWriter("Outfile.txt"));
+            for(String name : dvdCollection.keySet()){
+                out.print(dvdCollection.get(name).toPrint());
+            }
+            out.print("***********");
+            out.close();
+        }
+        catch(Exception e){
+            e.getStackTrace();
+        }
+        
+    }
+    
+    public void readFile(){
+        dvdCollection.clear();
+        try(BufferedReader in = new BufferedReader(new FileReader("Outfile.txt"))){
+            String str;
+            while((str = in.readLine()) != null){
+                String[] tokens = str.split(",");
+                dvdCollection.put(tokens[0], new DVD(tokens[1]));
+                dvdCollection.get(tokens[0]).setReleaseDate(tokens[1]);
+                dvdCollection.get(tokens[0]).setmPAARating(tokens[2]);
+                dvdCollection.get(tokens[0]).setDirectorsName(tokens[3]);
+                dvdCollection.get(tokens[0]).setStudio(tokens[4]);
+                dvdCollection.get(tokens[0]).setUserRating(tokens[5]);
+            }
+        }
+        catch(Exception e){
+            e.getStackTrace();
+        }
+    }
 }
+

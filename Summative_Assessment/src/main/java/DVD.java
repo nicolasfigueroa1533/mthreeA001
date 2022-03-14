@@ -71,12 +71,36 @@ public class DVD {
     
     public String toString(){
         String elements;
-        elements = "Title: " + this.getTitle() + "\n" +
-                   "Release Date: " + this.getReleaseDate() + "\n" +
-                   "MPAA Rating: " + this.getmPAARating() + "\n" +
-                   "Director's Name: " + this.getDirectorsName() + "\n" +
-                   "Studio: " + this.getStudio() + "\n" +
+        elements = "Title: " + this.getTitle() + ", " +
+                   "Release Date: " + this.getReleaseDate() + ", " +
+                   "MPAA Rating: " + this.getmPAARating() + ", " +
+                   "Director's Name: " + this.getDirectorsName() + ", " +
+                   "Studio: " + this.getStudio() + ", " +
                    "User Rating / Comments: " + this.getUserRating() + "\n";
         return elements;
     }
-}
+    
+    public String[] toArray(){
+        String[] dvdArray = new String[6];
+        dvdArray[0] = this.getTitle();
+        dvdArray[1] = this.getReleaseDate();
+        dvdArray[2] = this.getmPAARating();
+        dvdArray[3] = this.getDirectorsName();
+        dvdArray[4] = this.getStudio();
+        dvdArray[5] = this.getUserRating();
+        return dvdArray;
+    }
+    
+    public String toPrint(){
+        String[] array = this.toArray();
+        String printer;
+        for(int i=0; i<array.length; i++){
+            printer = printer + array[i];
+            if(i<5){
+                printer = printer + " ,";
+            }
+        }
+        return printer;
+    }
+}   
+
