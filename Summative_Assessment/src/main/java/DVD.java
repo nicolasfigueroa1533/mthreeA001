@@ -93,7 +93,7 @@ public class DVD {
     
     public String toPrint(){
         String[] array = this.toArray();
-        String printer;
+        String printer = null;
         for(int i=0; i<array.length; i++){
             printer = printer + array[i];
             if(i<5){

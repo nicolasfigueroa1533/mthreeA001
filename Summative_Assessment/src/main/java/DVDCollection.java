@@ -18,7 +18,8 @@ public class DVDCollection {
         this.name = name;
     }
     
-    public void addDVD(String name, DVD dvd){
+    public void addDVD(String name){
+        DVD dvd = new DVD(name);
         dvdCollection.put(name, dvd);
     }
     
