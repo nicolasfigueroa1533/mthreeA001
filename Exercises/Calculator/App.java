@@ -7,7 +7,7 @@ public class App{
     Scanner myScanner2 = new Scanner(System.in);
     boolean proceed = true;
     int choice;
-    String choice2;
+    char choice2;
 
     while(proceed){
       displayMenu();
@@ -19,9 +19,9 @@ public class App{
       }
       operation(choice);
       System.out.println("Would you like to perform another operation?");
-      System.out.println("Enter '1' for yes/ '2' for no");
-      choice = myScanner.nextInt();
-      if(choice == 2){
+      System.out.println("Enter 'y/n'");
+      choice2 = myScanner.next().charAt(0);
+      if(choice2 == 'n'){
         proceed = false;
         System.out.println("Exiting Program");
         break;
