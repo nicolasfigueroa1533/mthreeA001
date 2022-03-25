@@ -2,22 +2,31 @@ import java.util.*;
 
 public class App{
   public static Calculator myCalc = new Calculator();
-  public static boolean proceed = false;
   public static void main(String[] args){
     Scanner myScanner = new Scanner(System.in);
+    Scanner myScanner2 = new Scanner(System.in);
+    boolean proceed = true;
+    int choice;
+    String choice2;
 
-    do{
+    while(proceed){
       displayMenu();
-      String choice = myScanner.nextLine();
+      choice = myScanner.nextInt();
+      if(choice == 5){
+        proceed = false;
+        System.out.println("Exiting Program");
+        break;
+      }
       operation(choice);
       System.out.println("Would you like to perform another operation?");
-      System.out.println("Enter 'y/n'");
-      String choice2 = myScanner.nextLine();
-      if(choice2 == "y"){
-        proceed = true;
+      System.out.println("Enter '1' for yes/ '2' for no");
+      choice = myScanner.nextInt();
+      if(choice == 2){
+        proceed = false;
+        System.out.println("Exiting Program");
+        break;
       }
     }
-    while(proceed);
 
   }
 
@@ -32,7 +41,7 @@ public class App{
     System.out.println("5.) Exit Program");
   }
 
-  public static void operation(String choice){
+  public static void operation(int choice){
     Scanner numScanner = new Scanner(System.in);
     System.out.println("Input first number: ");
     int numOne = Integer.parseInt(numScanner.nextLine());
@@ -40,16 +49,13 @@ public class App{
     int numTwo = Integer.parseInt(numScanner.nextLine());
 
     switch (choice){
-      case "1": System.out.println(myCalc.add(numOne,numTwo));
+      case 1: System.out.println(myCalc.add(numOne,numTwo));
                 break;
-      case "2": System.out.println(myCalc.subtract(numOne,numTwo));
+      case 2: System.out.println(myCalc.subtract(numOne,numTwo));
                 break;
-      case "3": System.out.println(myCalc.multiply(numOne,numTwo));
+      case 3: System.out.println(myCalc.multiply(numOne,numTwo));
                 break;
-      case "4": System.out.println(myCalc.divide(numOne,numTwo));
-                break;
-      case "5": System.out.println("Exiting Program");
-                proceed = false;
+      case 4: System.out.println(myCalc.divide(numOne,numTwo));
                 break;
       default: System.out.println("Incorrect input");
                 break;
