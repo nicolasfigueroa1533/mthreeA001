@@ -33,6 +33,17 @@ public class DVDCollectionView {
         return io.readInt("Please select from the above choices.", 1, 8);
     }
     
+    public int printEditMenu() {
+        io.print("1.) Change name");
+        io.print("2.) Change realease date");
+        io.print("3.) Change MPAA rating");
+        io.print("4.) Change director's name");
+        io.print("5.) Change sudio");
+        io.print("6.) Change user rating");
+        
+        return io.readInt("Please select from the above choices.", 1, 6);
+    }
+    
     public DVD getDVDInfo() {
         String title = io.readString("Please enter the DVD title");
         String releaseDate = io.readString("Please enter the Release Date");
