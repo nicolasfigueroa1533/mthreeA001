@@ -133,10 +133,8 @@ public class DVDCollectionDaoFileImpl implements DVDCollectionDao {
     // --------------------------------------
     //  [0]  [1]    [2]         [3]
     String[] dvdTokens = dvdAsText.split(DELIMITER);
-
     // Given the pattern above, the student Id is in index 0 of the array.
     String dvdTitle = dvdTokens[0];
-
     // Which we can then use to create a new Student object to satisfy
     // the requirements of the Student constructor.
     DVD dvdFromFile = new DVD(dvdTitle);
@@ -214,9 +212,9 @@ public class DVDCollectionDaoFileImpl implements DVDCollectionDao {
         dvdAsText += aDVD.getmPAARating() + DELIMITER;
 
         // Cohort - don't forget to skip the DELIMITER here.
-        dvdAsText += aDVD.getDirectorsName();
+        dvdAsText += aDVD.getDirectorsName() + DELIMITER;
         
-        dvdAsText += aDVD.getStudio();
+        dvdAsText += aDVD.getStudio() + DELIMITER;
 
         dvdAsText += aDVD.getUserRating();
         // We have now turned a student to text! Return it!

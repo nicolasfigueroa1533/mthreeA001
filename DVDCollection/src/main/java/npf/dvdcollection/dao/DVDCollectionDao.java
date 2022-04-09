@@ -14,7 +14,7 @@ import java.io.*;
 import npf.dvdcollection.dto.DVD;
 public interface DVDCollectionDao {
     
-    public void addDVD(String name, DVD newDVD)
+    public DVD addDVD(String name, DVD newDVD)
             throws DVDCollectionDaoException;
     
     public DVD removeDVD(String name)

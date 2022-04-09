@@ -26,11 +26,9 @@ public class DVDCollectionView {
         io.print("3.) Edit the information for an existing DVD");
         io.print("4.) List all DVDs currently in the collection");
         io.print("5.) Display all available information for a DVD");
-        io.print("6.) Load a DVD library from a file");
-        io.print("7.) Save a DVD library to an output file");
-        io.print("8.) Exit");
+        io.print("6.) Exit");
 
-        return io.readInt("Please select from the above choices.", 1, 8);
+        return io.readInt("Please select from the above choices.", 1, 6);
     }
     
     public int printEditMenu() {
@@ -40,8 +38,9 @@ public class DVDCollectionView {
         io.print("4.) Change director's name");
         io.print("5.) Change sudio");
         io.print("6.) Change user rating");
+        io.print("7.) Exit");
         
-        return io.readInt("Please select from the above choices.", 1, 6);
+        return io.readInt("Please select from the above choices.", 1, 7);
     }
     
     public DVD getDVDInfo() {
@@ -90,7 +89,7 @@ public class DVDCollectionView {
         return io.readString("Please enter the DVD Title.");
     }
 
-    public void displayStudent(DVD dvd) {
+    public void displayDVD(DVD dvd) {
         if (dvd != null) {
             io.print(dvd.getTitle());
             io.print("Release Date: " + dvd.getReleaseDate());
